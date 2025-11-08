@@ -1,0 +1,179 @@
+/* src/styles/theme.css */
+
+/* ==========================
+   Material 3 Pro - Theme
+   ========================== */
+:root{
+  /* Palette principale */
+  --primaryColor: #0f172a;      /* bleu très foncé / principal */
+  --onPrimary: #ffffff;
+  --surface: #ffffff;           /* cartes / surfaces */
+  --background: #f5f7fb;        /* fond général */
+  --surface-variant: #eef2ff;   /* cartes légères */
+  --secondaryColor: #f59e0b;    /* accent / action */
+  --onSecondary: #111827;
+
+  /* Semantic */
+  --textPrimary: #0f172a;
+  --textSecondary: #6b7280;
+  --muted: #9ca3af;
+  --danger: #dc2626;
+  --success: #16a34a;
+
+  /* Layout tokens */
+  --radius: 12px;
+  --card-radius: 14px;
+  --shadow-1: 0 6px 18px rgba(15,23,42,0.06);
+  --shadow-2: 0 10px 30px rgba(15,23,42,0.08);
+  --transition: 200ms cubic-bezier(.2,.8,.2,1);
+  --container-max: 1100px;
+  --gap: 16px;
+  --glass: rgba(255,255,255,0.6);
+}
+
+/* Base */
+* { box-sizing: border-box; }
+html,body,#root { height:100%; }
+body{
+  margin:0;
+  background: linear-gradient(180deg, var(--background), #eef2ff 60%);
+  color:var(--textPrimary);
+  font-family: Inter, "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  padding: 24px;
+}
+
+/* Container */
+.app-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Cards */
+.card {
+  background: var(--surface);
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-1);
+  padding: 20px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-2);
+}
+
+/* Auth / forms */
+.auth-page {
+  min-height: calc(100vh - 48px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 40px 16px;
+}
+
+.auth-card {
+  width: 420px;
+  border-radius: 16px;
+  padding: 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), var(--surface));
+  box-shadow: 0 12px 30px rgba(2,6,23,0.08);
+  border: 1px solid rgba(15,23,42,0.04);
+}
+
+/* Headings */
+.h-title {
+  font-size: 1.6rem;
+  margin: 0 0 12px 0;
+  color: var(--primaryColor);
+  font-weight: 700;
+}
+.h-sub { color: var(--textSecondary); font-size: 0.9rem; margin-bottom: 18px; }
+
+/* Inputs */
+.form-group { margin-bottom: 14px; }
+.input {
+  width:100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e6e9f2;
+  background: transparent;
+  outline: none;
+  font-size: 0.98rem;
+  transition: box-shadow var(--transition), border-color var(--transition);
+  color: var(--textPrimary);
+}
+.input:focus {
+  box-shadow: 0 6px 20px rgba(14,165,233,0.06);
+  border-color: rgba(14,165,233,0.55);
+}
+
+/* Buttons */
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition);
+}
+
+/* Primary & secondary */
+.btn-primary {
+  background: linear-gradient(90deg, var(--secondaryColor), #f97316);
+  color: var(--onSecondary);
+  box-shadow: 0 8px 24px rgba(245,158,11,0.12);
+}
+.btn-primary:active { transform: translateY(1px); }
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(15,23,42,0.06);
+  color: var(--textPrimary);
+}
+
+/* small helpers */
+.text-center { text-align:center; }
+.error { color: var(--danger); font-size: 0.9rem; margin-bottom: 12px; }
+.small { font-size: 0.85rem; color:var(--textSecondary); }
+
+/* Form layout specific */
+.form-actions { display:flex; gap:12px; margin-top: 10px; }
+.link-like { color: var(--primaryColor); cursor: pointer; font-weight:600; text-decoration: none; }
+
+/* Profile */
+.profile-header {
+  display:flex;
+  gap:16px;
+  align-items:center;
+  margin-bottom:18px;
+}
+.profile-avatar {
+  width:96px; height:96px; border-radius:50%;
+  background: linear-gradient(180deg,#fff,#f3f4f6);
+  display:flex; align-items:center; justify-content:center;
+  font-size:40px; box-shadow: var(--shadow-1);
+  border:1px solid rgba(15,23,42,0.04);
+}
+.profile-actions { display:flex; gap:12px; margin-left:auto; }
+
+/* Cards grid */
+.grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:var(--gap); margin-top:18px; }
+
+/* Reservation / forms */
+.form-input { padding:10px 12px; border-radius:10px; border:1px solid #e6e9f2; width:100%; }
+
+/* small utilities */
+.kv { color:var(--muted); font-size:0.9rem; }
+
+/* Responsive */
+@media (max-width:520px){
+  .auth-card { width: 100%; padding: 18px; border-radius: 12px; }
+  .profile-avatar { width:80px; height:80px; }
+}
